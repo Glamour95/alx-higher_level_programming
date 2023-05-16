@@ -1,23 +1,30 @@
+#!/usr/bin/python3
+import sys
+
 if __name__ == "__main__":
+    args = len(sys.argv) - 1
 
-    """Handle basic arithmetic operations."""
-
-    from calculator_1 import add, sub, mul, div 
-    import sys
-
-    if len(sys.argv) - 1 != 3:
-
+    if args != 3:
         print("Usage: ./100-my_calculator.py <a> <operator> <b>")
         sys.exit(1)
 
-    ops = {"+": add, "-": sub, "*": mul, "/": div}
-
-if sys.argv[2] not in list(ops.keys()):
-
-        print("Unknown operator. Available operators: +, -, * and /")
-        sys.exit(1)
-
     a = int(sys.argv[1])
+    operator = sys.argv[2]
     b = int(sys.argv[3])
 
-    print("{} {} {} = {}".format(a, sys.argv[2], b, ops[sys.argv[2]](a, b)))
+    if operator == '+':
+        print("{} + {} = {}".format(a, b, a + b))
+    elif operator == '-':
+        print("{} - {} = {}".format(a, b, a - b))
+    elif operator == '*':
+        print("{} * {} = {}".format(a, b, a * b))
+    elif operator == '/':
+        if b == 0:
+            print("Error: Cannot divide by 0")
+            sys.exit(1)
+        print("{} / {} = {}".format(a, b, a / b))
+    else:
+        print("Unknown operator: {}".format(operator))
+        sys.exit(1)
+
+    sys.exit(0)
