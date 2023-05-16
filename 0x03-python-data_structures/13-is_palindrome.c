@@ -1,42 +1,63 @@
-#include "lists.h"
-#include <stdlib.h>
 #include <stdio.h>
-#include <stddef.h>
+#include <stdlib.h>
+#include "lists.h"
 
 /**
- * is_palindrome- Checks if a singly linked list is a palindrome.
- * @head: Head pointer
- * Return: 0 if it is not a palindrome, 1 if it is a palindrome.
+ * is_palindrome - checks if a singly linked list is a palindrome
+ * @head: pointer to pointer to the head of the list
+ *
+ * Return: 1 if the list is a palindrome, 0 otherwise
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *node;
-	int values[9999], i = 0, c = 0;
+	listint_t *slow = *head;
+	listint_t *fast = *head;
+	listint_t *prev = NULL;
+	listint_t *next = NULL;
+	listint_t *second_half = NULL;
+	int is_palindrome = 1;
 
-	if ((!*head) || (!head))
+	if (*head == NULL || (*head)->next == NULL)
+		return (is_palindrome);
+
+	while (fast != NULL && fast->next != NULL)
 	{
-		return (1);
+		fast = fast->next->next;
+		prev = slow;
+		slow = slow->next;
 	}
-	node = *head;
-	if (!node->next)
+
+	if (fast != NULL)
 	{
-		return (1);
+		second_half = slow->next;
+		slow->next = prev;
 	}
-	while (node)
+	else
 	{
-		values[i] = node->n;
-		node = node->next;
-		i++;
+		second_half = slow;
+		prev->next = NULL;
 	}
-	i--;
-	while (i >= 0 && c <= i)
+
+	while (second_half != NULL)
 	{
-		if (values[i] != values[c])
+		next = second_half->next;
+		second_half->next = prev;
+		prev = second_half;
+		second_half = next;
+	}
+
+	second_half = prev;
+	while (second_half != NULL)
+	{
+		if ((*head)->n != second_half->n)
 		{
-			return (0);
+			is_palindrome = 0;
+			break;
 		}
-		i--;
-		c++;
+		*head = (*head)->next;
+		second_half = second_half->next;
 	}
-	return (1);
+
+	return (is_palindrome);
 }
+
