@@ -8,12 +8,3 @@ def new_in_list(my_list, idx, element):
     copy = [x for x in my_list]
     copy[idx] = element
     return copy
-
-# Test the function
-
-my_list = [1, 2, 3, 4, 5]
-index = 2
-new_element = 10
-result = new_in_list(my_list, index, new_element)
-print("Original list:", my_list)
-print("New list:", result)

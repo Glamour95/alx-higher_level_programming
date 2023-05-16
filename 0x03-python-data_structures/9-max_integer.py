@@ -11,9 +11,3 @@ def max_integer(my_list=[]):
             big = my_list[i]
 
     return big
-
-
-# Test the function
-numbers = [1, 5, 3, 9, 2, 7]
-result = max_integer(numbers)
-print("Maximum integer:", result)
