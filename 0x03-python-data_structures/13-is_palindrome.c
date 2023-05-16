@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 /*
  * File: 13-is_palindrome.c
  * Auth: Glamour Maphanga
