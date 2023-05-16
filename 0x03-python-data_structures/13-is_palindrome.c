@@ -1,10 +1,3 @@
-#!/usr/bin/python3
-
-/*
- * File: 13-is_palindrome.c
- * Auth: Glamour Maphanga
- */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include "lists.h"
