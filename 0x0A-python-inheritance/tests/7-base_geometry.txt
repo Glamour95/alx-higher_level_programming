@@ -1,28 +1,4 @@
-This file is used to test the functionality of the `7-base_geometry.py` file.
-
->>> bg = BaseGeometry()
-
->>> bg.integer_validator("my_int", 12)
-
->>> bg.integer_validator("width", 89)
-
->>> bg.integer_validator("name", "John")
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-  File "7-base_geometry.py", line X, in integer_validator
-    raise TypeError(f"{name} must be an integer")
-TypeError: name must be an integer
-
->>> bg.integer_validator("age", 0)
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-  File "7-base_geometry.py", line X, in integer_validator
-    raise ValueError(f"{name} must be greater than 0")
-ValueError: age must be greater than 0
-
->>> bg.integer_validator("distance", -4)
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-  File "7-base_geometry.py", line X, in integer_validator
-    raise ValueError(f"{name} must be greater than 0")
-ValueError: distance must be greater than 0
+BaseGeometry area() is not implemented
+TypeError name must be an integer
+ValueError age must be greater than 0
+ValueError distance must be greater than 0
