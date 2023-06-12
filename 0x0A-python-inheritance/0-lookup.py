@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 def lookup(obj):
     return dir(obj)
 
@@ -12,4 +14,3 @@ class MyClass2(object):
 print(lookup(MyClass1))
 print(lookup(MyClass2))
 print(lookup(int))
-
