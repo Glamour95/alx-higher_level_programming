@@ -1,3 +1,7 @@
+#!/usr/bin/python3
+"""A script that adds all arguments to a Python list,
+and then save them to a file"""
+
 import sys
 from os import path
 from 5-save_to_json_file import save_to_json_file
