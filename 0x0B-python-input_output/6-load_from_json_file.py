@@ -3,7 +3,8 @@
 
 import json
 
+
 def load_from_json_file(filename):
-    with open(filename, 'r') as file:
-        data = json.load(file)
-    return data
+    """Creates an Object from a “JSON file”"""
+    with open(filename, 'r') as f:
+        return json.load(f)
