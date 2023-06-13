@@ -3,21 +3,16 @@
 and then saves them to a file"""
 
 import sys
-import os.path
 from save_to_json_file import save_to_json_file
 from load_from_json_file import load_from_json_file
 
 filename = "add_item.json"
 
-if os.path.isfile(filename):
-    # Load existing data from file
+try:
     my_list = load_from_json_file(filename)
-else:
-    # Create a new empty list
+except FileNotFoundError:
     my_list = []
 
-# Add the command line arguments to the list
 my_list.extend(sys.argv[1:])
 
-# Save the updated list to the file
 save_to_json_file(my_list, filename)
