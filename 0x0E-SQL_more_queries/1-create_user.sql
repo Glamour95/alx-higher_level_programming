@@ -1,9 +1,13 @@
--- creates the MySQL server user user_0d_1.
--- user_0d_1 should have all privileges on your MySQL server
--- The user_0d_1 password should be set to user_0d_1_pwd
--- To make a new user -> CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'password';
--- To provide the user with all privileges -> GRANT ALL PRIVILEGES ON * . * TO 'newuser'@'localhost';
-CREATE USER IF NOT EXISTS 'user_0d_1'@'localhost';
-SET PASSWORD FOR 'user_0d_1'@'localhost' = PASSWORD('user_0d_1_pwd');
+-- Create user user_0d_1 and grant all privileges
+CREATE USER 'user_0d_1'@'localhost';
 GRANT ALL PRIVILEGES ON *.* TO 'user_0d_1'@'localhost';
-FLUSH PRIVILEGES;
+
+-- Create user user_0d_2 and grant all privileges
+CREATE USER 'user_0d_2'@'localhost';
+GRANT ALL PRIVILEGES ON *.* TO 'user_0d_2'@'localhost';
+
+-- Show privileges for user_0d_1
+SHOW GRANTS FOR 'user_0d_1'@'localhost';
+
+-- Show privileges for user_0d_2
+SHOW GRANTS FOR 'user_0d_2'@'localhost';
